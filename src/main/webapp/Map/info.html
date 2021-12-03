@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>상세 정보 || 맛있는 지도</title>
+</head>
+<link rel="stylesheet" href="style/info.css" />
+<link rel="stylesheet" href="../SchedulePage/style/main.css" />
+<script defer src="../SchedulePage/js/nav.js"></script>
+<script defer src="js/info.js"></script>
+<script src="https://kit.fontawesome.com/a9ea2ab270.js"
+	crossorigin="anonymous"></script>
+<body>
+	<header class="header nav-header">
+		<div class="header__icon">
+			<img src="../img/nav-logo.png" alt="맛있는지도" class="header__icon-logo" />
+		</div>
+		<div class="header__menu">
+			<span class="header__menu__schedule header__menu__item">일정관리</span> <span
+				class="header__menu__map header__menu__item">지도탐색</span> <span
+				class="header__menu__board header__menu__item">게시판</span> <span
+				class="header__menu__my-page header__menu__item">마이페이지</span>
+			<div class="header__menu__log-out header__menu__item">로그아웃</div>
+		</div>
+	</header>
+	<main class="main">
+		<section class="main-left">
+			<div class="main__header">
+				<div class="main__header-upper">
+					<div class="main__header-left">
+						<span class="main__header__title"></span> <span
+							class="main__header__score"> 5.0 </span>
+					</div>
+					<div class="main__header-right">
+						<div class="main__header__review">
+							<i class="far fa-edit"></i> <span>리뷰쓰기</span>
+						</div>
+						<div class="main__header__like">
+							<i class="far fa-heart"></i> <span>가고싶다</span>
+						</div>
+					</div>
+				</div>
+				<div class="main__header-lower">
+					<div class="main__header__view-count main__header__count-items">
+						<i class="far fa-eye"></i> <span id="view-counter">0</span>
+					</div>
+					<div class="main__header__reply-count main__header__count-items">
+						<i class="fas fa-pen"></i> <span id="review-counter"></span>
+					</div>
+					<div class="main__header__like-count main__header__count-items">
+						<i class="fas fa-heart"></i> <span id="like-counter"></span>
+					</div>
+				</div>
+			</div>
+			<div class="info-divider"></div>
+			<div class="main__info"></div>
+			<div class="divider"></div>
+			<div class="main__review">
+				<div class="review__header">
+					<div class="review__header-left">
+						<span class="review__title">리뷰</span> <span class="review__count"></span>
+					</div>
+					<div class="review__header-right">
+						<span class="review__total-count review__category"></span> <span
+							class="review__divider">|</span> <span
+							class="review__good-count review__category"></span> <span
+							class="review__divider">|</span> <span
+							class="review__soso-count review__category"></span> <span
+							class="review__divider">|</span> <span
+							class="review__bad-count review__category"></span>
+					</div>
+				</div>
+				<div class="review__main"></div>
+			</div>
+		</section>
+		<section class="main-right">
+			<!--insert map script code-->
+		</section>
+	</main>
+</body>
+</html>

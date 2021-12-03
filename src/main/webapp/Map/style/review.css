@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25vw;
+  padding-right: 25vw;
+}
+
+.main__title {
+  color: #7f7f7f;
+  margin-top: 3rem;
+}
+
+.res-name {
+  font-size: 2rem;
+  color: #ec6938;
+}
+
+.main__comment-container {
+  display: flex;
+  position: relative;
+  width: 45vw;
+  height: 35vh;
+  margin-top: 1.5rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  outline: none;
+}
+.comment__button-box {
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+}
+.comment__button-box button {
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: white;
+  color: #a9a9a9;
+}
+
+.comment__button-box i {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.main__comment {
+  margin-top: 5rem;
+  margin-left: 2rem;
+  margin-right: 0.2rem;
+  outline: none;
+  width: 45vw;
+  height: 65%;
+  resize: none;
+  border: none;
+}
+
+.string-checker {
+  margin-top: 5px;
+  width: 45vw;
+  text-align: end;
+  color: #a9a9a9;
+}
+
+.lower__button-box {
+  width: 45vw;
+  margin-top: 2rem;
+  text-align: end;
+}
+
+.lower__button-box button {
+  outline: none;
+}
+
+.btns:hover {
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: white;
+  width: 8.5rem;
+  height: 3.1rem;
+  border: 1px solid black;
+  border-radius: 40px;
+}
+
+.write-btn {
+  background-color: white;
+  width: 8.5rem;
+  height: 3.1rem;
+  border: none;
+  border-radius: 40px;
+  background-color: #ec6938;
+  color: white;
+  margin-left: 1rem;
+}
+
+.disabled {
+  background-color: #e9e9e9;
+  cursor: not-allowed;
+}
+
+.available {
+  background-color: #ec6938;
+}
+
+.available:hover {
+  cursor: pointer;
+}

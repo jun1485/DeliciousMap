@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>로그인 || 맛있는 지도</title>
+<link rel="stylesheet" href="style/index.css" />
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=4274954189294607" nonce="SiOBIhLG"></script>
+<meta name="google-signin-client_id" content="483200689151-p1l01q5ppbvpgrasgskdasuak209vlbv.apps.googleusercontent.com">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	function OnClickTest() {
+		console.log("Ok");
+	}
+</script>
+
+<style>
+Html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('./img/login-bg.png');
+}
+
+.grandParentContaniner {
+	display: table;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.parentContainer {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.circle {
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	margin: auto;
+}
+
+input[type='text'], input[type='password'] {
+	border: none;
+	outline: none;
+	padding: 0.8em;
+	background-color: white;
+	border-radius: 2em;
+}
+
+.loginBtn {
+	border: none;
+	outline: none;
+	padding: 0.5em 1em 0.5em 1em;
+	color: white;
+	background-color: #f47521;
+	border-radius: 2em;
+}
+
+table {
+	margin: auto;
+}
+
+td {
+	padding: 10px;
+}
+
+td {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="grandParentContaniner">
+		<div class="parentContainer">
+			<div style="text-align: center">
+				<img src="./img/login-logo.png" alt="맛있는지도" style="width: 60%" />
+			</div>
+			<div class="box">
+				<form id="loginform" action="loginCheck.jsp" method="POST">
+					<table>
+						<tr>
+							<td>
+								<div class="circle">ID</div>
+							</td>
+							<td><label for="loginId"></label> <input type="text"
+								id="loginId" name="loginId" placeholder="ID" required />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="circle">PW</div>
+							</td>
+							<td><label for="loginPw"></label> <input type="password"
+								id="loginPw" name="password" placeholder="Password" required />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<button class="loginBtn" type="submit">로그인</button>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="color: white">또는</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<section class="sns-container">
+									<button id="signInWithGoogle"  onclick="googleLogin()">
+										<img src="./img/google.svg"
+											alt="Sign in with your Google account." />
+									</button>
+									</button>
+									<button id="signInWithFacebook" onclick="fnFbCustomLogin()">
+										<img src="./img/facebook.svg"
+											alt="Sign in with your Facebook account." />
+									</button>
+								</section>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td><a href="register.html" style="color: white">회원가입</a></td>
+							<td><a href="find.html" style="color: white">ID/PW찾기</a></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	//구글 로그인
+	function googleLogin() {
+		gapi.load('auth2', function() {
+		gapi.auth2.init();
+		options = new gapi.auth2.SigninOptionsBuilder();
+		options.setPrompt('select_account');
+        // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+		options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+        // 인스턴스의 함수 호출 - element에 로그인 기능 추가
+        // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
+		gapi.auth2.getAuthInstance().attachClickHandler('signInWithGoogle', options, onSignIn, onSignInFailure);
+	})
+}
+
+	function onSignIn(googleUser) {
+		var access_token = googleUser.getAuthResponse().access_token
+		$.ajax({
+			// people api를 이용하여 프로필 및 생년월일에 대한 선택동의후 가져온다.
+			url : 'https://people.googleapis.com/v1/people/me'
+			// key에 자신의 API 키를 넣습니다.
+			,
+			data : {
+				personFields : 'birthdays',
+				key : 'AIzaSyARA_EKLNIPkfAHyXQ0-NSWSD-xVpo20mk',
+				'access_token' : access_token
+			},
+			method : 'GET'
+		}).done(function(e) {
+			//프로필을 가져온다.
+			var profile = googleUser.getBasicProfile();
+			console.log(profile)
+
+			let to_url = 'googleLogin.jsp';
+			var form = document.createElement("form");
+			form.setAttribute("method", "post");
+			form.setAttribute("action", to_url);
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type", "hidden");
+			hiddenField.setAttribute("name", "id");
+			hiddenField.setAttribute("value", profile.getId());
+			form.appendChild(hiddenField);
+			var hiddenField2 = document.createElement("input");
+			hiddenField2.setAttribute("type", "hidden");
+			hiddenField2.setAttribute("name", "name");
+			hiddenField2.setAttribute("value", profile.getName());
+			form.appendChild(hiddenField2);
+			document.body.appendChild(form);
+			form.submit();
+
+		}).fail(function(e) {
+			console.log(e);
+		})
+	}
+	function onSignInFailure(t) {
+		console.log(t);
+	}
+
+	//페이스북 로그인
+	function statusChangeCallback(res) {
+		statusChangeCallback(response);
+	}
+
+	function fnFbCustomLogin() {
+		FB.login(function(response) {
+			if (response.status === 'connected') {
+				FB.api('/me', 'get', {
+					fields : 'name'
+				}, function(r) {
+					console.log(r);
+
+					let to_url = 'facebookLogin.jsp';
+					var form = document.createElement("form");
+					form.setAttribute("method", "post");
+					form.setAttribute("action", to_url);
+					var hiddenField = document.createElement("input");
+					hiddenField.setAttribute("type", "hidden");
+					hiddenField.setAttribute("name", "id");
+					hiddenField.setAttribute("value", r.id);
+					form.appendChild(hiddenField);
+					var hiddenField2 = document.createElement("input");
+					hiddenField2.setAttribute("type", "hidden");
+					hiddenField2.setAttribute("name", "name");
+					hiddenField2.setAttribute("value", r.name);
+					form.appendChild(hiddenField2);
+					document.body.appendChild(form);
+					form.submit();
+				})
+			} else if (response.status === 'not_authorized') {
+				// 사람은 Facebook에 로그인했지만 앱에는 로그인하지 않았습니다.
+				alert('앱에 로그인해야 이용가능한 기능입니다.');
+			} else {
+				// 그 사람은 Facebook에 로그인하지 않았으므로이 앱에 로그인했는지 여부는 확실하지 않습니다.
+				alert('페이스북에 로그인해야 이용가능한 기능입니다.');
+			}
+		}, {
+			scope : 'public_profile,email'
+		});
+	}
+
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId : '293108916028594', // 내 앱 ID를 입력한다.
+			cookie : true,
+			xfbml : true,
+			version : 'v10.0'
+		});
+		FB.AppEvents.logPageView();
+	};
+</script>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>css 테스트</title>
+<!--font awesome key-->
+<script src="https://kit.fontawesome.com/a9ea2ab270.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style/comment.css" />
+<style>
+</style>
+</head>
+<body>
+
+	<!-- 댓글 뷰부분-->
+	<div class="comments_view_part" align="center">
+		<form>
+			<div class="write_container">
+				<i class="fas fa-user-circle" style="width: 5%"></i>
+				<textarea style="width: 80%" placeholder="댓글을 입력하세요." name="reply_content"></textarea>
+				<div align="right" style="width: 85%">
+					<button class="comment_set_btn">
+						<i class="fas fa-times"></i>
+					</button>
+					<button class="comment_set_btn">
+						<i class="fas fa-check"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+
+		<div style="width: 75%" align="left">
+			<h3>댓글 15</h3>
+		</div>
+
+		<br>
+
+		<div class="all_comment_container" align="left">
+			<div id="">
+				<div class="comment_container">
+					<i class="fas fa-user-circle" style="width: 5%"></i>
+					<div class="comment_a_writer">유저1</div>
+					<div class="comment_a_content">안녕하세요</div>
+					<button class="comment_set_btn"
+						onclick="onReply('<%=comments.get(i).getKey()%>_re')">
+						<i class="fas fa-reply"></i>
+					</button>
+					<button class="comment_set_btn"
+						onclick="onEdit('<%=comments.get(i).getKey()%>_re')">
+						<i class="fas fa-pen"></i>
+					</button>
+					<button class="comment_set_btn"
+						onclick="location.href='deleteComment.jsp?post_key=<%=post_key%>&comment_key=<%=comments.get(i).getKey()%>'">
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+				<hr width="100%">
+			</div>
+
+			<div id="<%=comments.get(i).getKey()%>_re" >
+				<form method="post" action="saveNewComment.jsp?post_key=<%=post_key%>&reply_comment_key=<%=comments.get(i).getKey()%>">
+				<div class="write_container">
+					<i class="fas fa-reply" style="width: 5%"></i>
+					<textarea id="reply_content" name="reply_content"
+						style="width: 85%" placeholder="댓글을 입력하세요."></textarea>
+					<button class="comment_set_btn" onclick='close("<%=comments.get(i).getKey()%>_re")'>
+						<i class="fas fa-times"></i>
+					</button>
+					<button class="comment_set_btn" type="submit">
+						<i class="fas fa-check"></i>
+					</button>
+				</div>
+				</form>
+				<hr width="100%">
+			</div>
+
+			<div id="">
+				<div class="comment_container">
+					<i class="fas fa-reply" style="width: 5%"></i> <i
+						class="fas fa-user-circle" style="width: 5%"></i>
+					<div class="comment_a_re_writer">글쓴이</div>
+					<div class="comment_a_content">안녕하세요</div>
+					<button class="comment_set_btn">
+						<i class="fas fa-pen"></i>
+					</button>
+					<button class="comment_set_btn" onclick="location.href='deleteComment?post_key=<%=post_key%>&comment_key=<%=comments.get(i).getReplys().get(j).getKey()%>'">
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+				<hr width="100%">
+			</div>
+			
+				<div id="">
+				<div class="write_container">
+					<i class="fas fa-pen" style="width: 5%"></i>
+					<textarea id="reply_content" name="reply_content"
+						style="width: 85%" placeholder="댓글 수정 폼"></textarea>
+					<button class="comment_set_btn">
+						<i class="fas fa-times"></i>
+					</button>
+					<button class="comment_set_btn">
+						<i class="fas fa-check"></i>
+					</button>
+				</div>
+				<hr width="100%">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>일정 관리 || 맛있는 지도</title>
+    <!--css 파일 주소-->
+    <link rel="stylesheet" href="main.css" />
+    <!--font awesome key-->
+    <script
+      src="https://kit.fontawesome.com/a9ea2ab270.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--firebase auth-->
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"
+    ></script>
+    <!--js 파일 주소-->
+    <script defer src="main.js"></script>
+    <!--navigation 파일 주소-->
+    <script defer src="nav.js"></script>
+  </head>
+    <header class="header nav-header">
+      <div class="header__icon">
+        <img src='./img/nav-logo.png' alt='맛있는지도' class='header__icon-logo'>
+      </div>
+      <div class="header__menu">
+        <span class="header__menu__schedule header__menu__item">일정관리</span>
+        <span class="header__menu__map header__menu__item">지도탐색</span>
+        <span class="header__menu__board header__menu__item">게시판</span>
+        <div class="header__menu__log-out header__menu__item">로그아웃</div>
+      </div>
+    </header>
+    <div class="container">
+      <header class="container-header">
+        <div class="container-header__title">일정을 관리해보세요.</div>
+        <span class="container-header__contents">
+          새로운 일정을 만들거나 기존의 일정을 편집, 삭제할 수 있습니다.
+        </span>
+      </header>
+      <div class="container-main">
+        <section class="component initial-component">
+          <div class="img initial-component__img">
+            <i class="fas fa-plus"></i>
+          </div>
+          <span class="component__title initial-component__title">
+            새로운 일정 만들기
+          </span>
+        </section>
+      </div>
+    </div>
+    <form action="" class="modal-container">
+      <div id='modal-bg' class='modal-bg'>
+      <div class="modal hidden-modal">
+        <header class="modal-header">
+          <span class="modal-header__title">일정 정보 입력</span>
+          <button type='button' class="modal-header__btn">
+            <i class="fas fa-times"></i>
+          </button>
+        </header>
+        <div class="modal-body">
+          <div class="modal-body__shcedule-title modal-body__item">
+            <label for="schedule-title">여행 제목</label>
+            <input
+              type="text"
+              id="schedule-title"
+              class="modal-body__txt-input"
+              placeholder="몇 글자 이내로 입력하세요."
+              maxlength="20"
+              required
+            />
+          </div>
+          <div class="modal-body__schedule-start-date modal-body__item">
+            <label for="schedule-start-date">출발일</label>
+            <input
+              type="date"
+              id="schedule-start-date"
+              class="modal-body__txt-input"
+              placeholder="캘린더를 클릭하세요."
+              required
+            />
+          </div>
+          <div class="modal-body__schedule-end-date modal-body__item">
+            <label for="schedule-end-date">도착일</label>
+            <input
+              type="date"
+              id="schedule-end-date"
+              class="modal-body__txt-input"
+              placeholder="캘린더를 클릭하세요."
+              required
+            />
+          </div>
+        </div>
+        <footer class="modal-footer">
+          <input type="submit" value="완료" class="modal-footer__btn" />
+        </footer>
+      </div>
+    </form>
+  </body>
+</html>

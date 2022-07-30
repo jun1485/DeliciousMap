@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>회원가입 || 맛있는 지도</title>
+<script src="https://kit.fontawesome.com/a9ea2ab270.js"
+	crossorigin="anonymous"></script>
+<script defer
+	src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+<script defer
+	src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+<script defer src="./js/register.js"></script>
+<style>
+Html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('./img/login-bg.png');
+}
+
+.grandParentContaniner {
+	display: table;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.parentContainer {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.circle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	background-color: white;
+	margin: auto;
+	font-size: 0.85em;
+}
+
+input[type="text"], input[type="password"], input[type="tel"] {
+	border: none;
+	outline: none;
+	padding: 0.8em;
+	background-color: white;
+	border-radius: 2em;
+}
+
+.loginBtn {
+	border: none;
+	outline: none;
+	padding: 0.5em 1em 0.5em 1em;
+	color: white;
+	background-color: #F47521;
+	border-radius: 2em;
+}
+
+table {
+	margin: auto;
+}
+
+td {
+	padding: 10px;
+}
+
+td {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="grandParentContaniner">
+		<div class="parentContainer">
+			<div style="text-align: center;">
+				<img src="./img/login-logo.png" alt="맛있는지도" style="width: 60%;">
+			</div>
+			<div class="box">
+				<form id="Registerform" action="jsp/findID.jsp" method="POST">
+					<table>
+						<tr>
+							<td>
+								<div class="circle">이름</div>
+							</td>
+							<td><label for="RegisterName"></label> <input type="text"
+								id="RegisterName" name="RegisterName" placeholder="Name"
+								required></td>
+						</tr>
+						<tr>
+							<td>
+								<div class="circle">Phone</div>
+							</td>
+							<td><label for="RegisterPhone"></label> <input type="tel"
+								id="RegisterPhone" name="RegisterPhone"
+								pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+								placeholder="Phone : 010-xxxx-xxxx" required></td>
+						</tr>
+						<tr>
+							<td colspan='2'>
+								<button class="loginBtn" type="submit">아이디 찾기</button>
+							</td>
+						</tr>
+						<tr>
+							<span class="error-msg"></span>
+						</tr>
+						</form>
+						</div>
+						</div>
+						</div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+/*
+        nav css
+        */
+.header {
+	width: 93vw;
+	height: 20vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 4em;
+	padding: 0 4em;
+	border-bottom: 1.5px solid black;
+}
+
+.header__menu {
+	display: flex;
+	padding-top: 3em;
+	cursor: pointer;
+	transition: transform 300ms ease-in;
+}
+
+.header__menu__item {
+	padding-left: 2em;
+	font-size: 1.4rem;
+}
+
+/*
+        top header css
+        */
+.top_menu_items a {
+	color: #2196f3;
+	text-decoration: none;
+	border: #a1887f 1px solid;
+	display: flex;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+}
+
+.top_container {
+	display: flex;
+	margin: 0 6em;
+	padding: 0 3em;
+	height: 9vh;
+	width: 90vw;
+	align-items: center;
+	border-bottom: black 1px solid;
+}
+
+.top_container * {
+	width: 6em;
+	padding-left: 1em;
+	padding-right: 1em;
+	font-size: 1.2rem;
+	display: flex;
+}
+
+/*
+        main article css
+        */
+.main_container {
+	margin-left: 20vh;
+	margin-right: 15vh;
+}
+
+.article_title_info {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	font-size: 20px;
+}
+
+.article_write_info {
+	margin-top: 10px;
+	margin-bottom: 4%;
+	display: flex;
+	height: 70px;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.article_profile_info {
+	display: flex;
+	align-items: center;
+	width: 50%;
+	font-size: 20px;
+}
+
+.article_profile_info img {
+	border: 1px black solid;
+	border-radius: 100%;
+}
+
+.article_profile_info strong {
+	margin-left: 30px;
+}
+
+.article_write_date_info {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+
+.article_write_date_title {
+	margin-right: 25px;
+}
+
+/*
+        schedule css
+        */
+.schedule_viewPart {
+	display: block;
+	border-bottom: 2px solid #a1887f;
+	margin-bottom: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.schedule-Box {
+	width: 250px;
+	height: 400px;
+	margin: 20px;
+	padding: 30px;
+	border: 1px solid black;
+	border-radius: 5px;
+	display: inline-block;
+	text-align: center;
+}
+
+/*
+        article content css
+        */
+.article_text_part {
+	margin-bottom: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+	float: none;
+	clear: both;
+	padding: 1em;
+	word-wrap: break-word;
+	font-size: 20px;
+	white-space: pre-line;
+}
+
+/*
+        bottom content css
+        */
+.article_bottom_part {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+	align-items: center;
+}
+
+.article_bottom_part img {
+	cursor: pointer;
+	border-radius: 100%;
+	border: #2196f3 1px solid;
+	margin-right: 20px;
+}
+
+/*
+        comments css
+        */
+.comments_view_part {
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+	height: 20%;
+	margin-bottom: 30px;
+	padding: 20px;
+	border: #a1887f 1px solid;
+}
+
+.main_content .comments_view_part {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 94%;
+	height: 43%;
+	margin-top: 50px;
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-bottom: 30px;
+}
+
+.comments_title {
+	margin-left: 20px;
+}
+
+.editInput {
+	width: 80%;
+}
+
+.editBox{
+	margin-left: 3%;
+	width: 95%;
+}
+
+/*
+        separate window css
+        */
+.banner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.main_content {
+	margin-top: 1%;
+	width: 95%;
+	height: auto;
+	border: 3px groove #a1887f;
+	border-radius: 1em;
+}
+
+.main_top {
+	margin: 5%;
+	border-bottom: #a1887f 1px solid;
+}
+
+.main_top input, .main_top h2 {
+	display: inline;
+	height: 50px;
+}
+
+.schedule_move_btn {
+	font-size: 3em;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.move_btn_container {
+	width: 15%;
+	margin: auto;
+	text-align: center;
+}
+
+.move_btn_container:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.box_box {
+	background-color: #292828;
+	color: white;
+	display: inline-block;
+	border-radius: 100px;
+	font-size: 20px;
+	height: 50px;
+	width: 90px;
+	margin-right: 20px;
+	padding-top: 10px;
+	text-align: center;
+}
+
+.box_box2 {
+	background-color: #797777;
+	color: white;
+	display: inline-block;
+	border-radius: 100px;
+	font-size: 12px;
+	height: 35px;
+	width: 70px;
+	padding-top: 7px;
+	text-align: center;
+}
+
+.box_box3 {
+	background-color: #797777;
+	color: white;
+	display: inline-block;
+	border-radius: 100px;
+	font-size: 12px;
+	height: 35px;
+	width: 60px;
+	padding-top: 7px;
+	text-align: center;
+}

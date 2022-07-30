@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리뷰 쓰기 || 맛있는 지도</title>
+    <link rel="stylesheet" href="style/review.css" />
+    <link rel="stylesheet" href="../SchedulePage/style/main.css" />
+    <script defer src="js/review.js"></script>
+    <script defer src="../SchedulePage/js/nav.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a9ea2ab270.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header nav-header">
+      <div class="header__icon">
+        <img
+          src="../img/nav-logo.png"
+          alt="맛있는지도"
+          class="header__icon-logo"
+        />
+      </div>
+      <div class="header__menu">
+        <span class="header__menu__schedule header__menu__item">일정관리</span>
+        <span class="header__menu__map header__menu__item">지도탐색</span>
+        <span class="header__menu__board header__menu__item">게시판</span>
+        <span class="header__menu__my-page header__menu__item">게시판</span>
+        <div class="header__menu__log-out header__menu__item">로그아웃</div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main__title">
+        <span class="res-name"></span>
+        <span>에 대한 솔직한 리뷰를 써주세요.</span>
+      </div>
+      <section class="main__comment-container">
+        <div class="comment__button-box">
+          <button class="good-btn comment-btns btns">
+            <i class="far fa-grin-squint"></i>
+            <span>맛있어요</span>
+          </button>
+          <button class="soso-btn comment-btns btns">
+            <i class="far fa-smile"></i>
+            <span>괜찮아요</span>
+          </button>
+          <button class="bad-btn comment-btns btns">
+            <i class="far fa-angry"></i>
+            <span>별로</span>
+          </button>
+        </div>
+        <textarea
+          class="main__comment"
+          cols="12"
+          minlength="1"
+          maxlength="10000"
+          placeholder="주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"
+          required
+          autofocus
+        ></textarea>
+      </section>
+      <div class="string-checker"></div>
+      <div class="lower__button-box">
+        <button class="cancel-btn btns">취소</button>
+        <button class="write-btn disabled" disabled>리뷰 올리기</button>
+      </div>
+    </main>
+  </body>
+</html>

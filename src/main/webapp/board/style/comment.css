@@ -1,0 +1,100 @@
+
+* {
+	box-sizing: border-box;
+}
+
+.comments_view_part {
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+	height: 20%;
+	margin-bottom: 30px;
+	padding: 20px;
+	border: #a1887f 1px solid;
+}
+
+.main_content .comments_view_part {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 3px groove #a1887f;
+	border-radius: 1em;
+	width: 94%;
+	height: 43%;
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-bottom: 30px;
+}
+
+.comments_title {
+	margin-left: 20px;
+}
+
+.comment_set_btn {
+  font-size: 1.3rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: transform 200ms ease-in;
+  cursor: pointer;
+}
+
+.comment_set_btn:hover{
+	 transform: scale(1.2);
+}
+
+.list_btn{
+	font-size: 1.5rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: transform 200ms ease-in;
+  cursor: pointer;
+}
+
+.list_btn:hover{
+	 transform: scale(1.2);
+}
+
+.write_container{
+	font-size: 20px;
+	width: 100%;
+	height: 10%;
+}
+
+.all_comment_container{
+	width: 75%;
+	height: 10%;
+}
+
+.comment_container{
+	display: inline-flex;
+	font-size: 20px;
+	width: 100%;
+	height: 10%;
+}
+
+.comment_a_content{
+	margin-right: 5%;
+	width: 60%;
+}
+
+.comment_a_writer{
+	margin-right: 5%;
+	width: 20%;
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.comment_a_re_writer{
+	margin-right: 5%;
+	width: 15%;
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.comment_a_*{
+	text-align: left;
+}

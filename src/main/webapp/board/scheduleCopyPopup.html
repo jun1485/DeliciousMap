@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a9ea2ab270.js"
+	crossorigin="anonymous"></script>
+    <title>스케줄 복사하여 저장</title>
+    <style>
+body {
+	display: flex;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.popup_contents {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid #BDBDBD;
+	width: 95%;
+	height: 95%;
+}
+
+/*
+        닫기버튼 css
+        */
+.close_button {
+	display: inline;
+	width: 30%;
+	height: 20%;
+	margin: 10%;
+}
+
+.sel-btn {
+	font-size: 1.5rem;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	transition: transform 200ms ease-in;
+	cursor: pointer;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.sel-btn:hover {
+	transform: scale(1.2);
+}
+/*
+        달력 핸들러 css
+        */
+.calendar_title {
+	display: flex;
+	justify-content: center;
+	font-weight: bold;
+	margin-bottom: 5%;
+	margin-top: 3%;
+	width: 100%;
+}
+
+.calendar_handler {
+	display: flex;
+	flex-direction: column;
+	padding: 5px 7%;
+	height: 80%;
+	width: 100%;
+	border: 1px solid rgb(87, 87, 87);
+	margin: 10%;
+}
+
+.calendar_table_content {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th {
+	background: rgb(236, 217, 217);
+	color: rgba(0, 0, 0, 0.39);
+	font-weight: bold;
+}
+
+td, th {
+	padding: 0px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+/*
+        스케줄 뷰
+        */
+.schedule_view {
+	margin: 10px 40px;
+	width: 430px;
+	height: 430px;
+	overflow-y: scroll;
+	margin-bottom: 20px;
+	padding: 30px;
+	padding-bottom: 0px;
+	border: 1px solid rgb(63, 63, 63);
+}
+
+.schedule_token {
+	padding: 10px;
+	margin-bottom: 30px;
+	font-size: 0.9rem;
+	width: 350px;
+	height: fit-content;
+	border: 1px solid rgb(36, 36, 36);
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.schedule_token * {
+	cursor: pointer;
+}
+
+.schedule_start_view {
+	display: inline;
+}
+
+.schedule_end_view {
+	display: inline;
+}
+
+/*
+        스케줄 작성
+        */
+.push_schedule_part {
+	display: flex;
+	justify-content: center;
+	margin: auto;
+}
+
+.set_form{
+	width: 60%;
+}
+</style>
+</head>
+
+<body>
+	<div class="popup_contents" align="center">
+		<div></div>
+
+		<!-- 달력 핸들러-->
+		<form method="get" action="copySchedule.jsp" class="set_form">
+			<div class="calendar_handler">
+				<div class="calendar_title">
+					<label class="calendar_title_label">저장할 날짜와 제목을 입력하세요.</label>
+				</div>
+				<div class="calendar_start_handler">
+					<label class="calendar_start_label">시작 시간 : </label> <input
+						type="date" id="start_date_selector" name="start_date_selector">
+				</div>
+				<div style="margin: 5%;">
+					<input type="text" name="title" placeholder="제목을 입력해주세요.">
+				</div>
+			</div>
+
+			<!-- 스케줄 저장-->
+			<div class="close_button" align="center">
+				<button type="submit" class="sel-btn">
+					<i class="fas fa-upload"></i> </button>
+				<button id="closeButton" name="closeButton" onClick='self.close()'
+					class="sel-btn">
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 93vw;
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 4em;
+  padding: 0 4em;
+  border-bottom: 3px solid black;
+}
+
+.header__icon-logo {
+  width: 200px;
+  height: 40px;
+  transform: translateY(50%);
+  cursor: pointer;
+}
+.header__menu {
+  display: flex;
+  padding-top: 3em;
+}
+
+.header__menu__item {
+  padding-left: 2em;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: transform 300ms ease-in;
+}
+
+.header__menu__item:hover {
+  transform: scale(1.3);
+  color: #f6732d;
+}
+
+.container {
+  width: 100vw;
+  height: 90vh;
+  padding: 2em;
+}
+
+.container-header {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+
+.container-header__title {
+  font-size: 3rem;
+}
+
+.container-header__contents {
+  display: inline-block;
+  margin-top: 0.8em;
+  font-size: 1rem;
+}
+
+.container-main {
+  display: flex;
+  padding: 3em 7.5em;
+}
+.component {
+  width: 43vw;
+  height: 20vh;
+  padding: 2em 2.5em;
+  border: 1px solid black;
+  border-radius: 2em;
+  cursor: pointer;
+  position: relative;
+  transition: transform 300ms ease-in;
+}
+
+.component:hover {
+  transform: scale(1.1);
+}
+
+.initial-component {
+  width: 27vw;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3em;
+  background-color: #f6732d;
+  color: #fffdfa;
+  font-size: 1.8rem;
+}
+
+.initial-component__img {
+  font-size: 10rem;
+  transition: transform 300ms ease-in;
+}
+
+.loaded-component-img {
+  width: 100%;
+  height: 75%;
+  border: 1px solid black;
+  border-radius: 5px 5px 0 0;
+}
+
+.component-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+  font-size: 2rem;
+}
+
+.component__edit-btn {
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: transform 200ms ease-in;
+  cursor: pointer;
+}
+.component__delete-btn {
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: transform 200ms ease-in;
+  cursor: pointer;
+}
+
+.component__edit-btn:hover {
+  transform: scale(1.3);
+  color: #f6732d;
+}
+
+.component__delete-btn:hover {
+  transform: scale(1.3);
+  color: #f6732d;
+}
+
+.component__date {
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+
+.component__date-separator {
+  margin: 0 0.3em;
+}
+
+.modal {
+  width: 650px;
+  height: 400px;
+  border: 1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  border-radius: 2em;
+  transform: translate(-50%, -50%);
+}
+
+.modal-header {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1em auto;
+  padding: 1em;
+  border-bottom: 1px solid black;
+  font-size: 2rem;
+}
+
+.modal-header__btn {
+  font-size: 2rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding-left: 2.5em;
+  font-size: 1.5rem;
+}
+
+.modal-body__item {
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.caldender-btn {
+  position: absolute;
+  top: 0;
+  left: 63%;
+}
+
+.modal-body__txt-input {
+  width: 45%;
+  padding-left: 1em;
+  margin-left: 1em;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  font-size: 1.3rem;
+}
+
+#schedule-start-date,
+#schedule-end-date {
+  margin-left: 3rem;
+}
+
+.modal-footer {
+  text-align: center;
+  padding-right: 5em;
+}
+
+.modal-footer__btn {
+  font-size: 1.5rem;
+}
+
+.hidden-modal {
+  display: none;
+}
+
+.modal-bg {
+  display: none;
+  background-color: rgba(14, 14, 14, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.show-modal-bg {
+  display: block;
+}
+.show-modal {
+  display: block;
+}

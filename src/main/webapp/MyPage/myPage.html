@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>마이페이지</title>
+<link rel="stylesheet" href="css/myPage.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap"
+	rel="stylesheet" />
+<link rel="stylesheet" href="../SchedulePage/style/main.css" />
+<script defer src="../SchedulePage/js/nav.js"></script>
+<script src="https://kit.fontawesome.com/a9ea2ab270.js"
+	crossorigin="anonymous"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<header class="header">
+		<div class="header__icon">
+			<img src="../img/nav-logo.png" alt="맛있는지도" class="header__icon-logo" />
+		</div>
+		<div class="header__menu">
+			<span class="header__menu__schedule header__menu__item">일정관리</span> <span
+				class="header__menu__map header__menu__item">지도탐색</span> <span
+				class="header__menu__board header__menu__item">게시판</span> <span
+				class="header__menu__my-page header__menu__item">마이페이지</span>
+			<div class="header__menu__log-out header__menu__item">로그아웃</div>
+		</div>
+	</header>
+
+	<!--mainContents-->
+	<div class="myPageContainer">
+		<div class="myPageTopContent">
+			<div class="leftTopContent">
+				<div class="myPageTitle">
+					<label class="myPageLabel" onclick="myButtonCheck('userProfile')">마이페이지</label>
+				</div>
+
+				<!--myPageButtons-->
+				<div class="myPageButtons">
+					<span class="topMenuContent" id="clientsChangeButton"
+						onclick="myButtonCheck('checkPW')">회원정보 수정</span> <span
+						class="topMenuContent" id="myArticleButton"
+						onclick="viewMyPosts()">내글 보기</span> <span
+						class="topMenuContent" id="mySubscribeButton"
+						onclick="viewMyLikes()">즐겨찾기 보기</span> <span
+						class="topMenuContent" id="clientsExitButton"
+						onclick="clientsExit()">회원 탈퇴</span>
+				</div>
+			</div>
+
+			<!--myPageSchedule-->
+			<!--<div class="myScheduleTitle">
+                    <label class="scheduleLabel">내가 최근에 작성한 스케줄</label>
+                </div>
+                <div class="myPageSchedule">
+                    <!--schedule 자리 아래의 이미지는 예시입니다. 지워도됩니다.-->
+			<!--<img src="http://placehold.it/" width="90%" height="100%" alt="예시입니다." />
+                </div>-->
+		</div>
+
+		<div class="bottomContent" id="bottomContent">
+			<!-- 사용자 프로필 -->
+			<div class="userProfile" id="userProfile" align="center">
+				<div class="profileLeft"> <i class="fas fa-user"></i> </div>
+				<table class="profileTable">
+					<tr>
+						<th class="tableHeader">ID </th>
+						<td class="tableBody" id="profile_id"> </td>
+					</tr>					
+					<tr>
+						<th class="tableHeader">닉네임 </th>
+						<td class="tableBody" id="profile_nickName"> </td>
+					</tr>					
+					<tr>
+						<th class="tableHeader">이름 </th>
+						<td class="tableBody" id="profile_name"> </td>
+					</tr>			
+					<tr>
+						<th class="tableHeader">전화번호 </th>
+						<td class="tableBody" id="profile_phone"> </td>
+					</tr>
+				</table>
+			</div>
+			<!-- 비밀번호 체크 or 외부 로그인 -->
+			<div class="checkPW" id="checkPW" style="display: none;" align="center">
+				<div class="checkUser">
+					<div class="pwCheckBox" align="center">
+						<h2>비밀번호 확인</h2>
+						<div
+							style="margin-top: 10%; margin-bottom: 10%; margin-left: 13%;">
+							<input type="password" name="pwCheck" id="pwCheck" />
+							<button class="pwCheckBtn" onclick="checkPW()">확인</button>
+						</div>
+					</div>
+					<div class="externalUserBox" align="center">
+						<button class="externalUserBtn" onclick="isExternalUser()">외부
+							로그인 유저입니다.</button>
+					</div>
+				</div>
+			</div>
+			<!--clientsChange-->
+			<div class="clientsChange" id="clientsChange" style="display: none" align="center">
+				<div align="center">
+					<h2>회원정보 수정</h2>
+				</div>
+				<table class="changeTable" id="clientsChange">
+					<div class="changeContainer" id="changeContainer">
+						<tr>
+							<td><label for="clientNickname">닉네임</label></td>
+							<td><input type="text" name="clientNickname" id="clientNickname" /></td>
+						</tr>
+					</div>
+					<div class="changeContainer" id="changeContainer">
+						<tr>
+							<td><label for="clientPassword">비밀번호</label></td>
+							<td><input type="text" name="clientPassword" id="clientPassword" /></td>
+						</tr>
+					</div>
+					<div class="changeContainer" id="changeContainer">
+						<tr>
+							<td><label for="clientPasswordCheck">비밀번호 확인</label></td>
+							<td><input type="password" name="clientPasswordCheck" id="clientPasswordCheck" /></td>
+						</tr>
+					</div>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="저장" onclick="changeProfile()"/></td>
+					</tr>
+				</table>
+			</div>
+
+			<!--myPageArticle-->
+			<div class="myPageArticle" id="myPageArticle" style="display: none">
+				<div class="main_container" align="center">
+					<div class="main_content">
+						<dl class="main_content_service" id="main_content_service">
+							<!-- 게시물 타이틀-->
+							<div class="main_content_banner">
+								<label class="main_content_banner_name">제목</label> <label
+									class="main_content_banner_writer">작성자</label> <label
+									class="main_content_banner_date">날짜</label> <label
+									class="main_content_banner_clickNumber">조회수</label> <label
+									class="main_content_banner_likeNumber">추천수</label>
+							</div>
+
+							<!-- 게시물 글들-->
+						</dl>
+					</div>
+				</div>
+				<div class="pageNumber_part">
+					<!--페이지 버튼-->
+					<button class="n_p_btn" id="previous_btn"
+						onclick="postButtonClick(-1)">이전</button>
+					<button class="n_p_btn" id="next_btn" onclick="postButtonClick(1)">다음</button>
+				</div>
+			</div>
+
+			<!--mySubcribe-->
+			<div class="mySubcribe" id="mySubcribe" style="display: none">
+				<div class="unitContainer" id="unitContainer"></div>
+				<!--즐겨찾기 검색 / 페이징기능-->
+				<div class="subcribeBottom">
+					<input type="text" id="subcribeSearchText" name="subcribeSearchText" /> 
+					<button class="search_btn" style="width: 30px; height: 30px;" onclick="searchLikes()">
+						<i class="fas fa-search" ></i>
+					</button>
+					<button type="button" class="subBtn" id="prevbtn" onclick="likeButtonClick(-1)">이전</button>
+					<button type="button" class="subBtn" id="nextbtn" onclick="likeButtonClick(1)">다음</button>
+				</div>
+			</div>
+
+			<!--clientsExit-->
+			<!--<div class="clientsExit" id="clientsExit" style="display: none"><input type="submit" value="회원 탈퇴" /></div>-->
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function myButtonCheck(element) {
+			document.getElementById("userProfile").style.display = "none";
+			document.getElementById("clientsChange").style.display = "none";
+			document.getElementById("checkPW").style.display = "none";
+			//document.getElementById("clientsExit").style.display = "none";
+			document.getElementById("myPageArticle").style.display = "none";
+			document.getElementById("mySubcribe").style.display = "none";
+			if(element != "mySubcribe")
+				likesKeyword = null;
+			let e = document.getElementById(element);
+			e.style.display = "";
+		}
+		
+		function clientsExit() {
+			if (confirm("정말 탈퇴하시겠습니까?") == true) {
+				location.href = "userDelete.jsp";
+			} else {
+				return;
+			}
+		}
+		
+		function checkPW() {
+			var pw = document.getElementById("pwCheck").value;
+			document.getElementById("pwCheck").value = '';
+			
+			$.ajax({ // 비밀번호 체크를 위해
+				url : 'checkPW.jsp', //데이터베이스에 접근해 현재페이지로 결과를 뿌려줄 페이지
+				mathod : 'post',
+				data : {
+					password : pw,
+				},
+				success : function(data) { //DB접근 후 가져온 데이터
+					const check = $.trim(data)
+					console.log(check);
+					if(check == 'true'){
+						document.getElementById("checkPW").style.display = "none";
+						document.getElementById("clientsChange").style.display = "";
+					}
+					else{
+						alert("비밀번호가 일치하지 않습니다.");
+					}
+				}
+			})
+		}
+		
+		function isExternalUser() {
+			$.ajax({ // 비밀번호 체크를 위해
+				url : 'isExternalUser.jsp', //데이터베이스에 접근해 현재페이지로 결과를 뿌려줄 페이지
+				mathod : 'post',
+				data : {
+				},
+				success : function(data) { //DB접근 후 가져온 데이터
+					const check = $.trim(data)
+					console.log(check);
+					if(check == 'true'){
+						document.getElementById("checkPW").style.display = "none";
+						document.getElementById("clientsChange").style.display = "";
+					}
+					else{
+						alert("외부 로그인 유저가 아닙니다.");
+					}
+				}
+			})
+		}
+
+		let postPage = 1;
+		let likePage = 1;
+		let likesKeyword = null;
+
+		function viewMyPosts() {
+			myButtonCheck("myPageArticle");
+
+			document.getElementById("main_content_service").innerHTML = '<div class="main_content_banner">'
+					+ '<label class="main_content_banner_name">제목</label>'
+					+ '<label class="main_content_banner_writer">작성자</label>'
+					+ '<label class="main_content_banner_date">날짜</label>'
+					+ '<label class="main_content_banner_clickNumber">조회수</label>'
+					+ '<label class="main_content_banner_likeNumber">추천수</label>'
+					+ '</div>'
+
+			$.ajax({ // 장소들을 가져오기 위함
+						url : 'getMyPosts.jsp', //데이터베이스에 접근해 현재페이지로 결과를 뿌려줄 페이지
+						mathod : 'post',
+						data : {
+							page : postPage,
+						},
+						success : function(data) { //DB접근 후 가져온 데이터
+							const json = JSON.parse($.trim(data));
+							console.log(json);
+							for (var i in json) {
+								var tmp = '<dd class="main_content_data">'
+										+ '<a class="title_c_c" href="../board/board_page.jsp?key='+json[i].p_num+'">'
+										+ json[i].title + '</a>'
+										+ '<div class="writer_name">'
+										+ json[i].uid + '</div>'
+										+ '<span class="writer_date">'
+										+ json[i].date + '</span>'
+										+ '<span class="click_number">'
+										+ json[i].views + '</span>'
+										+ '<span class="like_number">'
+										+ json[i].recommends + '</span></dd>'
+								document.getElementById("main_content_service").innerHTML += tmp;
+							}
+							if (json[0].isNext){
+								console.log("dd");
+								document.getElementById("next_btn").disabled = false;
+							}
+							else{
+								document.getElementById("next_btn").disabled = true;
+							}
+
+							if (postPage == 1) {
+								document.getElementById("previous_btn").disabled = true;
+							} else {
+								document.getElementById("previous_btn").disabled = false;
+							}
+
+						}
+					})
+		}
+
+		function postButtonClick(cnt) {
+			postPage += cnt;
+			viewMyPosts();
+		}
+
+		function viewMyLikes() {
+			myButtonCheck("mySubcribe");
+			document.getElementById("unitContainer").innerHTML = "";
+
+				$.ajax({ // 장소들을 가져오기 위함
+						url : 'getMyLikes.jsp', //데이터베이스에 접근해 현재페이지로 결과를 뿌려줄 페이지
+						mathod : 'post',
+						data : {
+							page : likePage,
+							keyword : likesKeyword
+						},
+						success : function(data) { //DB접근 후 가져온 데이터
+							const json = JSON.parse($.trim(data));
+							console.log(json);
+							for ( var i in json) {
+								console.log(json[i]);
+								var tmp = '<div class="subcribeTableUnit">'
+										+ '<table class="subcribeTable" id="subcribeTable"><tr>'
+										+ '<td rowspan="2" class="tablePhoto"><a href="../Map/info.jsp?r_num='+json[i].r_num+'">'
+										+ '<img src="'+json[i].img+'" alt="음식점사진"/ style="width: 160px; height: 120px;"></a>'
+										+ '</td><td class="tableTitle"><a href="../Map/info.jsp?r_num='+json[i].r_num+'" class="likeTitle">'
+										+ json[i].name + '</a></td></tr><tr>'
+										+ '<td class="tableAdress">'
+										+ json[i].addr
+										+ '</td></tr></table></div>';
+								document.getElementById("unitContainer").innerHTML += tmp;
+							}
+							if (json[0].isNext){
+								document.getElementById("nextbtn").disabled = false;
+							}
+							else{
+								document.getElementById("nextbtn").disabled = true;
+							}
+
+							if (likePage == 1) {
+								document.getElementById("prevbtn").disabled = true;
+							} else {
+								document.getElementById("prevbtn").disabled = false;
+							}
+						}
+					})
+		}
+		
+		function searchLikes() {
+			likesKeyword = document.getElementById("subcribeSearchText").value;
+			document.getElementById("subcribeSearchText").value = '';
+			console.log(likesKeyword);
+			if(likesKeyword == '')
+				likesKeyword = null;
+			
+			viewMyLikes();
+		}
+		
+		function likeButtonClick(cnt) {
+			likePage += cnt;
+			viewMyLikes();
+		}
+		
+		function changeProfile() {
+			var nickName = document.getElementById("clientNickname").value;
+			var pw = document.getElementById("clientPassword").value;
+			var cpw = document.getElementById("clientPasswordCheck").value;
+			if(pw != cpw){
+				alert("비밀번호를 다시 확인해 주세요.");
+				return;
+			}
+			if(nickName.length > 10){
+				alert("닉네임은 최대 10자 입니다.");
+				return;
+			}
+			if(pw.length > 15){
+				alert("닉네임은 최대 15자 입니다.");
+				return;
+			}
+			$.ajax({ // 장소들을 가져오기 위함
+				url : 'changeProfile.jsp', //데이터베이스에 접근해 현재페이지로 결과를 뿌려줄 페이지
+				mathod : 'post',
+				data : {
+					nickName : nickName,
+					password : pw
+				},
+				success : function(data) { //DB접근 후 가져온 데이터
+					alert("변경되었습니다.");
+					console.log("success");
+					myButtonCheck('userProfile')
+					document.getElementById("clientNickname").value = '';
+					document.getElementById("clientPassword").value = '';
+					document.getElementById("clientPasswordCheck").value = '';
+				}
+			})
+		}
+		
+		function getProfile() {
+			$.ajax({ // 장소들을 가져오기 위함
+				url : 'getProfile.jsp', //데이터베이스에 접근해 현재페이지로 결과를 뿌려줄 페이지
+				mathod : 'post',
+				data : {
+					
+				},
+				success : function(data) { //DB접근 후 가져온 데이터
+					const json = JSON.parse($.trim(data));
+					document.getElementById("profile_id").innerText = json.uid;
+					document.getElementById("profile_nickName").innerText = json.nickName;
+					document.getElementById("profile_name").innerText = json.name;
+					document.getElementById("profile_phone").innerText = json.phone;
+				}
+			})
+		}
+		
+		getProfile();
+	</script>
+</body>
+</html>

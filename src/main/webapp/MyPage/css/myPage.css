@@ -1,0 +1,562 @@
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+    letter-spacing: -1px;
+}
+
+html,
+body {
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+}
+
+.myPageContainer {
+    border: 1px black ridge;
+    margin: auto;
+    width: 70%;
+    height: max-content;
+    padding: 2% 3% 2% 3%;
+    margin-top: 20px;
+}
+
+a{
+	text-decoration-line: none;
+	color: black;
+	transition: all 0.2s linear;
+}
+
+/*마이페이지 버튼 */
+
+.myPageTopContent {
+    display: flex;
+    width: 100%;
+    height: 12vh;
+    border-bottom: 1px solid black;
+}
+
+.leftTopContent {
+	display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.myPageTitle {
+    display: inline-block;
+    width: 30%;
+    height: 10%;
+    margin-bottom: 3%;
+    margin-top: 0.7%;
+}
+
+.myPageLabel {
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.myPageLabel:hover {
+	transform: scale(1.1);
+	color: #f6732d;
+}
+
+.myPageButtons {
+    display: flex;
+    width: 100%;
+    height: 10%;
+}
+
+.topMenuContent{
+    height: max-content;
+    margin: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 1.15em;
+    font-weight: 600;
+    padding: 5px 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: black;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.topMenuContent:hover {
+	transform: scale(1.1);
+	color: #f6732d;
+}
+
+.bottomContent{
+	display: flex;
+  	justify-content: center;
+}
+
+/*마이페이지 스케줄 */
+/*
+.myScheduleTitle {
+    display: inline-block;
+    width: 25%;
+    height: 10%;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+.myPageSchedule {
+    width: 25%;
+    height: 100%;
+}
+*/
+
+/* 사용자 프로필 */
+
+.userProfile{
+	margin: 8%;
+	width: 80%;
+	display: flex;
+}
+
+.profileLeft{
+	width: 30%;
+	margin-right: 10%;
+	font-size: 150px;
+}
+
+.profileTable{
+	font-size: 20px;
+	width: 50%;
+  	border-spacing: 10px;
+  	border-collapse: separate;
+}
+
+.tableHeader{
+	width: 50%;
+}
+
+.tableBody{
+	width: 50%;
+}
+
+/* 비밀번호 확인 */
+
+.checkPW{
+	width: 100%;
+}
+
+.checkUser{
+	display: flex;
+	width: 100%;
+}
+
+.pwCheckBox{
+	margin-top: 5%;
+	border-right: 1px solid black;
+	width: 100%;
+	height: 100%;
+}
+
+.externalUserBox{
+	margin-top: 10%;
+	width: 100%;
+	height: 100%;
+}
+
+.externalUserBtn{
+	background-color: transparent;
+	transition: all 0.2s linear;
+	color: black;
+	width: 50%;
+	height: 20%;
+	font-size: 1.4em;
+	border: none;
+}
+
+.externalUserBtn:hover{
+	transform: scale(1.1);
+	color: #f6732d;
+	cursor: pointer;
+}
+
+.pwCheckBtn{
+	font-size: 1em;
+	margin: 1%;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	color: black;
+	transition: all 0.2s linear;
+}
+
+.pwCheckBtn:hover{
+	transform: scale(1.1);
+	color: #f6732d;
+	cursor: pointer;
+}
+
+/*마이페이지 회원정보 수정*/
+
+.clientsChange {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.changeContainer {
+    width: 100%;
+    height: fit-content;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.clientsChange label {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.clientsChange input {
+    font-size: 1.1rem;
+    font-weight: 600;
+    z-index: 2;
+    text-indent: 5px;
+    letter-spacing: 3px;
+}
+
+.clientsChange input[type="submit"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	font-size: 1em;
+	margin: 1%;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	color: black;
+	transition: all 0.2s linear;
+    padding: 5px 7px;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.clientsChange input[type="submit"]:hover{
+	transform: scale(1.1);
+	color: #f6732d;
+	cursor: pointer;
+}
+
+.changeTable td {
+    padding: 10px 13px;
+    text-align: center;
+}
+.changeTable tr:last-child td:last-child {
+    display: flex;
+    margin-left: 55px;
+}
+
+/*마이페이지 작성글 */
+
+/*
+main container top banner css
+ */
+
+.main_content {
+    margin-top: 1%;
+    width: 90%;
+    height: fit-content;
+    border: 3px groove #a1887f;
+    border-bottom: 1px groove #a1887f;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.main_content_service {
+    margin: 0;
+    padding: 0;
+}
+
+.main_content_title {
+    display: inline;
+    margin: top 0 bottom 0;
+    margin-left: 30px;
+}
+
+.main_content_service div:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.main_content_banner {
+    display: flex;
+    border-bottom: #a1887f 1px solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 20%;
+    padding-bottom: 1%;
+    padding-right: 1%;
+    backface-visibility: hidden;
+    max-height: 20%;
+    overflow: hidden;
+    padding-top: 10px;
+    background-color: rgb(226, 228, 207);
+}
+
+.main_content_banner * {
+    display: flex;
+}
+
+.main_content_banner_name {
+    margin-left: 9%;
+    width: 53%;
+}
+
+.main_content_banner_writer {
+    display: inline-block;
+    text-align: center;
+    width: 26%;
+}
+
+.main_content_banner_date {
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+}
+
+.main_content_banner_clickNumber {
+    display: inline-block;
+    text-align: center;
+    width: 10%;
+}
+
+.main_content_banner_likeNumber {
+    display: inline-block;
+    text-align: center;
+    width: 10%;
+}
+
+/*
+article css
+*/
+
+.main_content_data a {
+    display: inline-block;
+    backface-visibility: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-decoration: none;
+    width: 40%;
+    font-size: 0.9rem;
+    margin-right: 3%;
+    color: black;
+    text-align: left;
+}
+
+.main_content_data a:hover {
+	cursor: pointer;
+	color: orange;
+}
+
+.writer_name {
+    display: inline-block;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    width: 20%;
+}
+
+.writer_date {
+    display: inline-block;
+    text-align: center;
+    width: 17%;
+    flex-wrap: wrap;
+}
+
+.click_number {
+    display: inline-block;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 8%;
+}
+
+.like_number {
+    display: inline-block;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 5%;
+}
+
+.myPageArticle {
+    margin-top: 30px;
+    width: 100%;
+    height: 30vh;
+    max-height: fit-content;
+}
+
+.myArticlesButton {
+    display: flex;
+    width: 100%;
+    height: 30%;
+}
+
+.myArticlesButton * {
+    width: 15%;
+    height: 60%;
+    margin: 20px;
+    font-size: 1em;
+}
+
+/*
+bottom container css
+*/
+.pageNumber_part {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.prev_page_button {
+    border: #a1887f 1px ridge;
+    border-radius: 5px;
+}
+
+.pageNumber_part label {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.next_page_button {
+    border: #a1887f 1px ridge;
+    border-radius: 5px;
+}
+
+.n_p_btn {
+	font-size: 1.2em;
+	margin: 1%;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	color: black;
+	transition: all 0.2s linear;
+}
+
+.n_p_btn:hover {
+	cursor: pointer;
+	color: orange;
+	transform: scale(1.1);
+}
+
+/*마이페이지 즐겨찾기*/
+
+.mySubcribe {
+    width: 90%;
+}
+
+.subcribeTableUnit {
+    width: 70%;
+    height: max-content;
+    margin: 5%;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+    display: flex;
+  	justify-content: center;
+}
+
+.subcribeTable td:last-child {
+    padding-left: 50px;
+}
+
+.tablePhoto {
+    width: 160px;
+    height: 120px;
+}
+
+.tableTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.likeTitle{
+	transition: all 0.2s linear;
+}
+
+.likeTitle:hover{
+	color: #f6732d;
+}
+
+.tableAdress {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.subcribeBottom {
+    display: flex;
+    align-content: center;
+    width: 90%;
+    margin: 5%;
+    margin-top: 30px;
+    justify-items: flex-start;
+}
+
+.subcribeBottom input[type="text"] {
+    margin-left: 3%;
+    font-size: 1.05rem;
+    font-weight: 600;
+    z-index: 2;
+    text-indent: 5px;
+    letter-spacing: 1px;
+    width: 200px;
+}
+
+.search_btn{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-left: 2%;
+    margin-right: 30%;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    outline: none;
+	border: none;
+	background-color: transparent;
+}
+
+.search_btn:hover {
+	transform: scale(1.2);
+	color: #f6732d;
+}
+
+.subBtn {
+    all: unset;
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 1.4em;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 2px 5px;
+    justify-self: center;
+    transition: all 0.2s linear;
+}
+
+.subBtn:hover {
+	transform: scale(1.1);
+	color: #f6732d;
+}
+
+.unitContainer{
+	text-align: center;
+}

@@ -1,0 +1,19 @@
+.hide {
+  display: none;
+}
+
+body {
+  text-align: center;
+}
+
+.sns-container img {
+  width: 55px;
+  height: 55px;
+}
+
+.sns-container button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
